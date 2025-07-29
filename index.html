@@ -1,0 +1,285 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 13</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Startup Screen -->
+    <div id="startup-screen" class="startup-screen">
+        <div class="startup-logo">
+            <div class="windows-logo">
+                <div class="logo-squares">
+                    <div class="square red"></div>
+                    <div class="square green"></div>
+                    <div class="square blue"></div>
+                    <div class="square yellow"></div>
+                </div>
+            </div>
+            <div class="startup-text">Windows 13</div>
+        </div>
+        <div class="loading-container">
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <div class="loading-text">Starting Windows...</div>
+        </div>
+    </div>
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen hidden">
+        <div class="login-container">
+            <div class="user-profile">
+                <div class="profile-picture">
+                    <img id="profile-img" src="logo.png" alt="Profile">
+                    <input type="file" id="profile-upload" accept="image/*" style="display: none;">
+                    <button id="change-profile" class="change-profile-btn">Change</button>
+                </div>
+                <div class="username-display">User</div>
+            </div>
+            <div class="login-form">
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="Username" value="User">
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password">
+                    <button type="button" id="toggle-password" class="toggle-password">👁️</button>
+                </div>
+                <button id="login-btn" class="login-btn">Sign In</button>
+            </div>
+            <div class="login-options">
+                <button id="virtual-keyboard" class="option-btn">🔤 Virtual Keyboard</button>
+                <button id="font-size" class="option-btn">Aa Font Size</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop Environment -->
+    <div id="desktop" class="desktop hidden">
+        <!-- Top Header -->
+        <div class="top-header">
+            <div class="header-content">
+                <div class="windows-release-info">
+                    <span class="release-text">$Windows - Official Release on Bonk</span>
+                </div>
+                <div class="community-section">
+                    <span class="community-text">Join our X community</span>
+                    <button class="community-btn"
+                        onclick="window.open('https://x.com/i/communities/1950305155879948620')">Join</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desktop Icons -->
+        <div class="desktop-icons">
+            <div class="desktop-icon" data-app="file-explorer">
+                <div class="icon">📁</div>
+                <div class="icon-label">File Explorer</div>
+            </div>
+            <div class="desktop-icon" data-app="calculator">
+                <div class="icon">🔢</div>
+                <div class="icon-label">Calculator</div>
+            </div>
+            <div class="desktop-icon" data-app="notepad">
+                <div class="icon">📝</div>
+                <div class="icon-label">Notepad</div>
+            </div>
+            <div class="desktop-icon" data-app="browser">
+                <div class="icon">🌐</div>
+                <div class="icon-label">Browser</div>
+            </div>
+            <div class="desktop-icon" data-app="media-player">
+                <div class="icon">🎵</div>
+                <div class="icon-label">Media Player</div>
+            </div>
+        </div>
+
+        <!-- Taskbar -->
+        <div class="taskbar">
+            <button id="start-btn" class="start-btn">
+                <div class="start-logo">
+                    <div class="logo-squares mini">
+                        <div class="square red"></div>
+                        <div class="square green"></div>
+                        <div class="square blue"></div>
+                        <div class="square yellow"></div>
+                    </div>
+                </div>
+            </button>
+            <div class="taskbar-apps" id="taskbar-apps"></div>
+            <div class="system-tray">
+                <div class="tray-icon">🔊</div>
+                <div class="tray-icon">🌐</div>
+                <div class="tray-icon">🔋</div>
+                <div id="clock" class="clock"></div>
+            </div>
+        </div>
+
+        <!-- Start Menu -->
+        <div id="start-menu" class="start-menu hidden">
+            <div class="start-menu-header">
+                <div class="user-info">
+                    <img class="user-avatar" src="https://via.placeholder.com/40/4A90E2/FFFFFF?text=U" alt="User">
+                    <span class="user-name">User</span>
+                </div>
+                <button id="power-btn" class="power-btn">⚡</button>
+            </div>
+            <div class="start-menu-search">
+                <input type="text" id="app-search" placeholder="Search apps">
+            </div>
+            <div class="start-menu-apps">
+                <div class="app-category">
+                    <h3>Productivity</h3>
+                    <div class="app-grid">
+                        <div class="app-tile" data-app="calculator">
+                            <div class="app-icon">🔢</div>
+                            <div class="app-name">Calculator</div>
+                        </div>
+                        <div class="app-tile" data-app="notepad">
+                            <div class="app-icon">📝</div>
+                            <div class="app-name">Notepad</div>
+                        </div>
+                        <div class="app-tile" data-app="file-explorer">
+                            <div class="app-icon">📁</div>
+                            <div class="app-name">File Explorer</div>
+                        </div>
+                        <div class="app-tile" data-app="calendar">
+                            <div class="app-icon">📅</div>
+                            <div class="app-name">Calendar</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-category">
+                    <h3>Media</h3>
+                    <div class="app-grid">
+                        <div class="app-tile" data-app="media-player">
+                            <div class="app-icon">🎵</div>
+                            <div class="app-name">Media Player</div>
+                        </div>
+                        <div class="app-tile" data-app="photos">
+                            <div class="app-icon">📷</div>
+                            <div class="app-name">Photos</div>
+                        </div>
+                        <div class="app-tile" data-app="camera">
+                            <div class="app-icon">📹</div>
+                            <div class="app-name">Camera</div>
+                        </div>
+                        <div class="app-tile" data-app="paint">
+                            <div class="app-icon">🎨</div>
+                            <div class="app-name">Paint</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-category">
+                    <h3>Internet</h3>
+                    <div class="app-grid">
+                        <div class="app-tile" data-app="browser">
+                            <div class="app-icon">🌐</div>
+                            <div class="app-name">Browser</div>
+                        </div>
+                        <div class="app-tile" data-app="email">
+                            <div class="app-icon">📧</div>
+                            <div class="app-name">Mail</div>
+                        </div>
+                        <div class="app-tile" data-app="store">
+                            <div class="app-icon">🏪</div>
+                            <div class="app-name">Store</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-category">
+                    <h3>Games</h3>
+                    <div class="app-grid">
+                        <div class="app-tile" data-app="solitaire">
+                            <div class="app-icon">🃏</div>
+                            <div class="app-name">Solitaire</div>
+                        </div>
+                        <div class="app-tile" data-app="minesweeper">
+                            <div class="app-icon">💣</div>
+                            <div class="app-name">Minesweeper</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-category">
+                    <h3>System</h3>
+                    <div class="app-grid">
+                        <div class="app-tile" data-app="settings">
+                            <div class="app-icon">⚙️</div>
+                            <div class="app-name">Settings</div>
+                        </div>
+                        <div class="app-tile" data-app="task-manager">
+                            <div class="app-icon">📊</div>
+                            <div class="app-name">Task Manager</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Windows Container -->
+        <div id="windows-container" class="windows-container"></div>
+    </div>
+
+    <!-- Virtual Keyboard -->
+    <div id="virtual-keyboard" class="virtual-keyboard hidden">
+        <div class="keyboard-row">
+            <button class="key">1</button>
+            <button class="key">2</button>
+            <button class="key">3</button>
+            <button class="key">4</button>
+            <button class="key">5</button>
+            <button class="key">6</button>
+            <button class="key">7</button>
+            <button class="key">8</button>
+            <button class="key">9</button>
+            <button class="key">0</button>
+            <button class="key backspace">⌫</button>
+        </div>
+        <div class="keyboard-row">
+            <button class="key">Q</button>
+            <button class="key">W</button>
+            <button class="key">E</button>
+            <button class="key">R</button>
+            <button class="key">T</button>
+            <button class="key">Y</button>
+            <button class="key">U</button>
+            <button class="key">I</button>
+            <button class="key">O</button>
+            <button class="key">P</button>
+        </div>
+        <div class="keyboard-row">
+            <button class="key">A</button>
+            <button class="key">S</button>
+            <button class="key">D</button>
+            <button class="key">F</button>
+            <button class="key">G</button>
+            <button class="key">H</button>
+            <button class="key">J</button>
+            <button class="key">K</button>
+            <button class="key">L</button>
+            <button class="key enter">Enter</button>
+        </div>
+        <div class="keyboard-row">
+            <button class="key shift">Shift</button>
+            <button class="key">Z</button>
+            <button class="key">X</button>
+            <button class="key">C</button>
+            <button class="key">V</button>
+            <button class="key">B</button>
+            <button class="key">N</button>
+            <button class="key">M</button>
+            <button class="key space">Space</button>
+        </div>
+    </div>
+
+    <script src="apps.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
